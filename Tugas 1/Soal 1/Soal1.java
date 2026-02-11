@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.math.BigInteger;
-
+asdadasda
 class Soal1
 {
     public static void main(String[] args) 
