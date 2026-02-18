@@ -19,14 +19,19 @@ public class Restaurant{
         for (int i = 0; i <= id; i++) {
             if (!isOutOfStock(i)) {
                 System.out.println(
-                    nama_makanan[i] + "[" + stok[i] + "]" + "\tRp. " + harga_makanan[i]
+                    i + ". " + nama_makanan[i] + "[" + stok[i] + "]" + "\tRp. " + harga_makanan[i] 
+                );
+            }
+            else if (isOutOfStock(i)) {
+                System.out.println(
+                    i + ". " + nama_makanan[i] + "[Habis]" + "\tRp. " + harga_makanan[i] 
                 );
             }
         }
     }
     
     public boolean isOutOfStock(int id) {
-        if (stok[id] == 0) {
+        if (stok[id] <= 0) {
             return true;
         } else {
             return false;
@@ -35,6 +40,19 @@ public class Restaurant{
     
     public static void nextId() {
         id++;
+    }
+
+    public void pesanMakanan(int id, int jumlah) {
+        if (isOutOfStock(id)) {
+            System.out.println("Maaf, " + nama_makanan[id] + " sudah habis.\n");
+        } else if (jumlah > stok[id]) {
+            System.out.println("Maaf, stok " + nama_makanan[id] + " tidak cukup.\n");
+        } else {
+            stok[id] -= jumlah;
+            double totalHarga = harga_makanan[id] * jumlah;
+            System.out.println("Pesanan Anda: " + nama_makanan[id] + " x " + jumlah);
+            System.out.println("Total Harga: Rp. " + totalHarga + "\n");
+        }
     }
 }
 
