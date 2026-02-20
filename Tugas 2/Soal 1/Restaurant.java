@@ -50,7 +50,6 @@ public class Restaurant{
         } else {
             stok[id] -= jumlah;
             double totalHarga = harga_makanan[id] * jumlah;
-            System.out.println("Pesanan Anda: " + nama_makanan[id] + " x " + jumlah);
             System.out.println("Total Harga: Rp. " + totalHarga + "\n");
         }
     }
