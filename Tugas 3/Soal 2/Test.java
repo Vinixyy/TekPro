@@ -19,7 +19,5 @@ public class Test {
         System.out.println("Area = " + sq.getArea());
         System.out.println("Perimeter = " + sq.getPerimeter());
 
-        sq.setSide(5.0);
-        System.out.println("After setSide(5): " + sq);
     }
 }
