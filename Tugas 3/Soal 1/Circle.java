@@ -17,7 +17,7 @@ public Circle(double r) { // 2nd constructor
 radius = r;
 color = "red";
 }
-public Circle(double r, String c) { // 3rd constructor
+public Circle(double r, String c) { 
 radius = r;
 color = c;
 }

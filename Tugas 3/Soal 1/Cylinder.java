@@ -23,6 +23,19 @@ return height;
 // A public method for computing the volume of cylinder
 // use superclass method getArea() to get the base area
 public double getVolume() {
-return getArea() * height;
+return super.getArea() * height;
 }
+
+@Override
+public double getArea() {
+        double radius = getRadius();
+        return 2 * Math.PI * radius * height
+             + 2 * super.getArea(); 
+    }
+
+    @Override
+    public String toString() {
+        return "Cylinder: subclass of " + super.toString()
+             + " height=" + height;
+    }
 }
