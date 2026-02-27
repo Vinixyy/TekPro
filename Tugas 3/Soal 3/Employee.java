@@ -1,4 +1,4 @@
-class Employee {
+class Employee extends Sortable {
     private String name;
     private double salary;
     private int hireday;
@@ -23,5 +23,15 @@ class Employee {
 
     public int hireYear() {
         return hireyear;
+    }
+
+    @Override
+    public int compare(Sortable b) {
+        Employee eb = (Employee) b;
+        if (salary < eb.salary)
+            return -1;
+        if (salary > eb.salary)
+            return 1;
+        return 0;
     }
 }

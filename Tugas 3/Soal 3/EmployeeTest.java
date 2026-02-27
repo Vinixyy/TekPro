@@ -15,5 +15,8 @@ public class EmployeeTest {
         for (int i = 0; i < 3; i++) {
             staff[i].print();
         }
+
+        System.out.println("\nCompare staff[0] dan staff [1]");
+        System.out.println(staff[0].compare(staff[1])); // Output: -1 (gaji e1 lebih kecil dari e2)
     }
 }
