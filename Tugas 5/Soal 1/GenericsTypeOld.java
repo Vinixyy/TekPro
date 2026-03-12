@@ -9,11 +9,11 @@ public class GenericsTypeOld {
         this.t = t;
     }
 
-public static void main(String args[]) {
-GenericsTypeOld type = new GenericsTypeOld();
+    public static void main(String args[]) {
+        GenericsTypeOld type = new GenericsTypeOld();
 
-type.set("Java");
-String str = (String) type.get(); // type casting, error prone and can cause ClassCastException
+        type.set("Java");
+        String str = (String) type.get(); // type casting, error prone and can cause ClassCastException
 
-}
+    }
 }
