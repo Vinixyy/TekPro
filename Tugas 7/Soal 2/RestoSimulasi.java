@@ -1,20 +1,20 @@
 class Resto {
     private int chickenStock = 100;
 
-    public void serveCustomer(String cashierName) {
-        synchronized (this) {
-            if (chickenStock > 0) {
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                }
-                chickenStock--;
-                System.out.println(cashierName + "berhasil menjual 1 ayam. Sisa stok: " +
-                        chickenStock);
-            } else {
-                System.out.println(cashierName + "gagal: Stok Habis!");
+    public synchronized void serveCustomer(String cashierName) {
+
+        if (chickenStock > 0) {
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
             }
+            chickenStock--;
+            System.out.println(cashierName + "berhasil menjual 1 ayam. Sisa stok: " +
+                    chickenStock);
+        } else {
+            System.out.println(cashierName + "gagal: Stok Habis!");
         }
+
     }
 
     public int getRemainingStock() {
@@ -26,7 +26,7 @@ public class RestoSimulasi {
     public static void main(String[] args) throws InterruptedException {
         Resto ayamJuicyLuicyGallagher = new Resto();
         Runnable task = () -> {
-            for (int i = 0; i < 40; i++) {
+            for (int i = 0; i < 10; i++) {
                 ayamJuicyLuicyGallagher.serveCustomer(Thread.currentThread().getName());
             }
         };

@@ -10,13 +10,13 @@ public class TransferFulus {
         // Thread 1: Menjumlahkan/ transfer fulus dari acc1 ke acc2
         Thread t1 = new Thread(() -> {
             synchronized (acc1) { // Berikan komentar apa yang dilakukan pada blok ini?
-                System.out.println("Berikan pesan yang di cetak sebagai penanda thread ini sedang melakukan apa?");
+                System.out.println("Thread 1: Mengunci acc1");
                 try {
                     Thread.sleep(100);
                 } catch (Exception e) {
                 } // Simulasi dengan memberikan jeda. Mengapa diperlukan Exception?
                 synchronized (acc2) { // Berikan komentar apa yang dilakukan pada blok ini?
-                    System.out.println("Berikan pesan yang di cetak sebagai penandathread ini sedang melakukan apa?");
+                    System.out.println("Thread 1: Mengunci acc2");
                     acc2.balance += acc1.balance;
                 }
             }
@@ -24,13 +24,13 @@ public class TransferFulus {
         // Thread 2: Menjumlahkan/ transfer fulus dari acc2 ke acc1
         Thread t2 = new Thread(() -> {
             synchronized (acc1) { // Berikan komentar apa yang dilakukan pada blok ini?
-                System.out.println("Berikan pesan yang di cetak sebagai penanda thread ini sedang melakukan apa?");
+                System.out.println("Thread 2: Mengunci acc1");
                 try {
                     Thread.sleep(100);
                 } catch (Exception e) {
                 }
                 synchronized (acc2) { // Berikan komentar apa yang dilakukan pada blok ini?
-                    System.out.println("Berikan pesan yang di cetak sebagai penanda thread ini sedang melakukan apa?");
+                    System.out.println("Thread 2: Mengunci acc2");
                     acc1.balance += acc2.balance;
                 }
             }
